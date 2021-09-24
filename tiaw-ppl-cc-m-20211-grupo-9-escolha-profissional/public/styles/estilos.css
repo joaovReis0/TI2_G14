@@ -1,0 +1,183 @@
+body {
+    background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMVFRUXFxUVFxcVFxUXFRcXFRUXFxUXFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NFQ8PDysZFRkrKysrKystLSsrKysrKy0tNysrNystLSs3KzctNy03Ky0tLTc3LS0tKy0tNzctKy0tK//AABEIAOEA4QMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIHA//EACAQAQEBAQABBQADAAAAAAAAAAABEQIhEjFBUWGhwdH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDs9SrIUFiWoUDas+zpIgKHqUKaUApFQAiLAAIBKqEgKnRUngEsa0xMA5hVMAxMXCAmi6sBMDQBKsqQGsSLEsAImNAVnWk6AJCUoBQgBaSlgGmpOiAoGgJYkvloF1laQAKAUhaugIALk/BEBaWhADQAwEv4C0iQoL1pzAgL1UhoBIWBoHpVKQChcSgqVSQGa0WIBasSHSC1mrKtAJSJVDJ+hogsphiqJqYtoBhhhgECACLKAJSKCQ5VQIlOVBEtVJAWRRICbq2ACcrDCglWI0CVCxaB6f0NAVMTU5oNEU0BBQQkFwEqKUDwBAStJ1BBIukgomqliwFJBkBS0wDqJq6UDFIAJokgNAAiRpNATcXCAEACiLgEABFpoBDPoNBJ+tEQEoukQXUwtu/ixRmRqIoJKqUAhoXkDVsQoGjXgBmEWJAKQ1IClJTQQlVAaxE1dBI0mEATlpICRcMXQQonIFNU0CX7KtiAVYmKBhWLVlBag1gMo1qAtExQVJAgAnsQFhEkXARcMSzQUtJAEi1KvwBCoUFCJ0CrEkKC1FjOA1SJSgqVFgGBDAXRnf0BcIFoBTpOQUhgB6jVZBSQ5hIBSGJugsVEkBeoACRbBcBPkpFBIi2mglz3JDGgSwNLAWIaoM4KAVLFAOv4SLp1QNW1lZAIQgBSGLAQTyAtqsw8Aq4FoCJAChIuIEDcKoSlqWqAJ4WAmqYWgAAlipVgLUOklBfUYy1oI0z8qCosQBMXUBUxpADo0Aw1UwAn6atoM4SLpYBA1ZQMQS0F1OoKgmUXQCIuihIQwoJiwAMKligFFoJgAFRbTQRalh6gUoUEkw1cS1BYHJqixIEBIVatBMSxeTEE8CiglXQBWfYBaShQJQqgiVbCAEpVgJTCgEpi4YDPMW1KIKeDEUUpABSM0GkpCwEVbUBMF0AhEiyAsRUgLU0QFpCJQWkKWgVIsigzpDFoAmtAzIpiWgoi2gQsVLARrUiaCwZrUAKJAayfYwIN1IChSAB2X3ACrAAv+Mc/KCUbhz8gBCewKJGgBL8pEEGp7HQKEXkAHnf7BKLfZoAZ+WugUZAB/9k=);
+  }
+  #login-name {
+    font-size: 90px;
+    font-family: arabic typesetting;
+    border-bottom-style: ridge;
+    color: grey;
+  }
+  #login {
+    background-color: rgba(13, 13, 13, 0.2);
+    min-height: 500px;
+    padding: 40px 80px 40px 80px;
+  }
+  .quickC
+  {
+    background-color: rgb(134, 87, 111);
+  }
+  .user {
+    font-size: 29px;
+  
+    font-family: arabic typesetting;
+  
+    color: white;
+  }
+  #cabecalho{
+    background-color: #43D1CF;
+    height: 60px;
+  }
+  #rodape{
+    
+    padding-top: 10%;
+    height: 30%;
+  }
+  #texto {
+    background-color: #43D1CF;
+    text-align: center;
+  }
+  #profissa {
+    height: 103%;
+    width: 4%;
+  }
+  
+  #botao {
+    color: #fff;
+    background-color: #43D1CF;
+    border-color: #43D1CF;
+  }
+  #iconn {
+    background-color: #43D1CF;
+    border-color: #43D1CF;
+    color: white;
+  }
+  #iconn1 {
+    background-color: #43D1CF;
+    border-color: #43D1CF;
+    color: white;
+  }
+  
+  #text1 {
+    border-radius: 0;
+    height: 40px;
+  }
+  #text2 {
+    border-radius: 0;
+    height: 40px;
+  }
+  
+  .btn {
+    width: 100%;
+    float: left;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .label_001 {
+    font-size: 18px;
+    color: white;
+    font-style: italic;
+  }
+  .butsync
+  {
+  padding: 10%;
+  }
+  .header
+  {
+    background-color: blue;
+  }
+  .Titulo
+  {
+    justify-content: center;
+    text-align: center;
+    color: #daa520;
+  }
+  #PAD
+  {
+    padding-top: 0.5px;
+  }
+  .videos
+  {
+    max-width: 100%;
+  }
+  .Mobile
+  {
+    display: none;
+  }
+  .Desktop
+  {
+  max-width: 100%;
+  }
+  .LOGO
+  {
+    width: 100%;
+    
+    
+  }
+  .barrapesquisa
+  {
+    float: right;
+  }
+  #btnc 
+  {
+    margin-top: 9px;
+    background-color: #daa520;
+    
+  }
+  #busca:focus{
+    border: solid 2px #daa520;
+  }
+  .lateral{
+    float: right;
+    max-width: 100%;
+    
+  }
+  .entradaP
+  {
+  float: left;
+  }
+  #secVR{
+    text-align: center;
+    justify-content: center;
+  }
+  #desj{
+    margin-left: 170px;
+    margin-right: -170px;
+  }
+  .BoasVindas{
+    max-width: 100%;
+    
+  }
+  .gotonext{
+    
+    text-decoration: rgba(13, 13, 13, 0.2);
+    max-width: 10%;
+  }
+  .rreload{
+    max-width: 40%;
+    max-height: 40%;
+  }
+  
+  @media screen and (max-width:767px)
+  {
+    .Mobile
+    {
+  
+     display: flex;
+     flex-wrap: wrap;
+     width: 360px;
+  
+    }
+    .Desktop
+    {
+      display: none;
+    }
+    #desj{
+      display: none;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  
+  
+  }
+  

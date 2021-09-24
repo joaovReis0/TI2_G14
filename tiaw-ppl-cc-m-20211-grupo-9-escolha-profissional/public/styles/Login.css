@@ -1,0 +1,135 @@
+/* Header */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px !important;
+    max-width: 100%;
+    background-color: rgba(67, 209, 207, 0.35);
+    width: 100%;
+    right: 0px;
+}
+
+.header p{
+    padding-right: 20px;
+    margin: 0px;
+}
+
+.menu{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary{
+    background-color: #696969 !important;
+    border-color: #696969 !important;
+}
+
+.header p a{
+    color: #696969;
+}
+
+.logo{
+    max-width: 150px;
+    max-height: 150px;
+    padding-left: 10px;
+}
+
+.btn-outline-success{
+    color: #696969 !important;
+    border-color: #696969 !important;
+    background-color: transparent !important;
+}
+
+.navbar.bg-light{
+    background-color: transparent !important;
+}
+
+/* Fim header */
+
+
+/* Login */
+
+.formLogin{
+    border: 2px solid #d8dee4  !important;
+    border-radius: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 400px !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.formLogin h1, .formLogin p{
+    text-align: center;
+}
+
+.row{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.row label{
+    margin: 0px;
+}
+
+.buttonLogin, .btn-secondary{
+    width: 185px;
+}
+
+.btn-secondary{
+    background-color: #696969 !important;
+    border-color: #696969 !important;
+}
+
+/* Fim Login */
+
+
+
+/* Footer */
+
+.footer{
+    background-color: rgba(67, 209, 207, 0.35);
+    max-width: 100% !important;
+    margin: 0px !important;
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+}
+
+.footer p{
+    max-width: 550px;
+    margin: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Fim Footer */
+
+/****************************************************************************************/
+
+/* Display em mobile */
+
+@media screen and (min-width:0px) and (max-width:576px){
+
+    .footer{
+        margin-right: -15px !important;
+    }
+
+    .header p{
+        padding-right: 0px;
+    }
+
+    .button2{
+        padding-right: 15px;
+    }
+
+    .button1{
+        padding-right: 10px;
+    }
+
+}
