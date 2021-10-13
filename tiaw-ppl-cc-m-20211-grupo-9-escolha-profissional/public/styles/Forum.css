@@ -12,9 +12,7 @@
 /* mobile changes */
 
 .menu{
-    width: 1000px;
-    padding-right: 20px;
-    padding-top: 20px;
+    padding: 20px;
 }
 
 .menu1{
@@ -49,9 +47,9 @@
 }
 
 .logo{
+    margin-top: 10px;
     max-width: 150px;
     max-height: 56px;
-    padding-left: 10px;
 }
 
 .btn-outline-success{
@@ -94,8 +92,7 @@
 }
 
 textarea {
-    width:  30%;
-    height: 200px;
+    width: 30%;
 }
 button {
     display: block;
@@ -110,6 +107,19 @@ button {
 }
 .separation {
     color: black;
+}
+
+.coments_area{
+    border: 3px solid;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-top: 15px;
+}
+.btn-success{
+    background-color:#696969 !important;
+    border-color: #696969 !important;
+    margin-top: 5px;
+    display: block;
 }
 /* Fim Main */
 
