@@ -112,14 +112,31 @@ button {
 .coments_area{
     border: 3px solid;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 0px;
     padding-top: 15px;
+}
+.nav_pesquisa{
+    margin-top: 10px;
+}
+.botao_pesquisa{
+    margin-left: 10px;
+    color: white !important;
+    background-color: #000000b9 !important;
 }
 .btn-success{
     background-color:#696969 !important;
     border-color: #696969 !important;
     margin-top: 5px;
-    display: block;
+}
+.likebutton{
+    background-color:#696969;
+    border-color: #696969;
+    display: inline !important;
+}
+.dislikebutton{
+    background-color:#696969;
+    border-color: #696969;
+    display: inline !important;
 }
 /* Fim Main */
 
@@ -242,3 +259,4 @@ button {
         margin-left: 0px !important;
     }
 }
+
