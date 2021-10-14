@@ -78,16 +78,18 @@
                         ${comment.content}
                     </div>
                     <div class="ratings">
-                        <div class="voting">
-                            <button id="likebtn">
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
-                            <input type="number" id="input1" value="0" name="">
-                            
-                            <button id="dislikebtn">
-                                <i class ="fa fa-thumbs-down"></i>
-                            </button>
-                            <input type="number" id="input2" value="0" name="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="voting">
+                                    <button id="likebtn" type="button" class="btn btn-success likebutton">
+                                        <i class="fas fa-thumbs-up"></i>
+                                    </button>
+                                    &nbsp;&nbsp;
+                                    <button id="dislikebtn" type="button" class="btn btn-success dislikebutton">
+                                        <i class="fas fa-thumbs-down"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>  
                     </div> 
                     <div class="separation">¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯</div>
@@ -130,7 +132,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-
 
 </body>
 
