@@ -1,0 +1,77 @@
+.banner img{
+    height: 500px;
+    width: 100%;
+}
+.banner{.banner img{
+    height: 500px;
+    width: 100%;
+}
+.banner{
+    margin: 5px;
+}
+.sempadding{
+    padding: 0px;
+}
+.fundo{
+    background-color: rgba(67, 209, 207, 0.50);
+    border-radius: 20px;
+    padding-top: 14px;
+    padding-bottom: 1px;
+}
+.margem{
+    margin: 10px;
+}
+.fundop p{
+    background-color: rgba(67, 209, 207, 0.50);
+    border-radius: 20px;
+    padding: 2px;
+    text-align: center;
+}
+.baixo{
+    margin-bottom: 10px;
+}
+.btnforum{
+    text-align: right;
+}
+.espandir{
+    text-align: right;
+}
+@media screen and (min-width:0px) and (max-width:576px){
+    .banner img{
+        height: 200px;
+    }
+}
+    margin: 5px;
+}
+.sempadding{
+    padding: 0px;
+}
+.fundo{
+    background-color: rgba(67, 209, 207, 0.50);
+    border-radius: 20px;
+    padding-top: 14px;
+    padding-bottom: 1px;
+}
+.margem{
+    margin: 10px;
+}
+.fundop p{
+    background-color: rgba(67, 209, 207, 0.50);
+    border-radius: 20px;
+    padding: 2px;
+    text-align: center;
+}
+.baixo{
+    margin-bottom: 10px;
+}
+.btnforum{
+    text-align: right;
+}
+.espandir{
+    text-align: right;
+}
+@media screen and (min-width:0px) and (max-width:576px){
+    .banner img{
+        height: 200px;
+    }
+}
