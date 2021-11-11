@@ -41,13 +41,13 @@
                     </nav>
                 </li>
                 <li>
-                    <div class="button1">
+                    <div class="button1" id="cadastro">
                         <a class="button" href="Cadastro.html"><button type="button"
                                 class="btn btn-primary">Cadastro</button></a>
                     </div>
                 </li>
                 <li>
-                    <div class="button1">
+                    <div class="button1" id="login">
                         <a class="button" href="Login.html"><button type="button"
                                 class="btn btn-primary">Login</button></a>
                     </div>
@@ -350,6 +350,21 @@
 
 
     </main>
+    
+    <script>
+        window.onload = function() {
+        	const loggedUser = localStorage.getItem('email');
+        	if (loggedUser) {
+        		const cadastro = document.getElementById('cadastro');
+        		cadastro.innerHTML = loggedUser;
+        		
+        		const login = document.getElementById('login');
+        		login.remove();
+        		
+        	}
+        }
+	</script>
+  
 
     <!-- Fim Main -->
 

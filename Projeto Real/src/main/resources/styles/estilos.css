@@ -57,11 +57,15 @@ body {
     color: white;
   }
   
-  #text1 {
+  #nome {
     border-radius: 0;
     height: 40px;
   }
-  #text2 {
+  #email {
+    border-radius: 0;
+    height: 40px;
+  }
+  #senha {
     border-radius: 0;
     height: 40px;
   }

@@ -32,7 +32,7 @@ import static spark.Spark.*;
 public class Principal {
     public static void main(String[] args) {
     	port(7007);
-    	staticFiles.location("src/main/resources"); // pegar todos os documentos da pasta reources
+    	staticFiles.location("/"); // pegar todos os documentos da pasta reources
 		RetornaroFront mandarSite = new RetornaroFront();// chamar class que ira mandar nossa pagina html para a tela
     	
     	UsuarioService service = new UsuarioService();
@@ -47,7 +47,6 @@ public class Principal {
         
         // mandar os ids para o front end
      	get("/Ids", (req, res) -> {
-
      		String[] idsget = dao.retornarOsids();
      		res.header("Access-Control-Allow-Origin", "*");
      		res.header("Access-Control-Allow-Methods", "POST,GET");
@@ -57,9 +56,13 @@ public class Principal {
      		return dao.jasonIds(idsget);
      	});
      	
+     	post("/cadastro", (req, res) -> service.add(req, res));
+     	
+     	post("/login", (req, res) -> service.login(req, res));
+
+     	
 		// mandar Usuario para o front e para o bd
      	get("/mandarRe", (req, res) -> {
-
 			String nomeUU = "";
 			boolean verdade = true;
 			System.out.println(nomeUU = req.queryParams("query"));

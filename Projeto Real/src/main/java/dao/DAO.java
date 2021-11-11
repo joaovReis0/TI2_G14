@@ -17,22 +17,22 @@ public class DAO {
 	public boolean conectar() {
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
-		String mydatabase = "qvocacao";
+		String mydatabase = "ti2cc";
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + mydatabase;
-		String username = "postgres";
-		String password = "senha1234";
+		String username = "ti2cc";
+		String password = "ti@cc";
 		boolean status = false;
 		
 		try {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);
 			status = (conexao == null);
-			System.out.println("Conexão efetuada com o postgres!");
+			System.out.println("Conexï¿½o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- Driver nï¿½o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- " + e.getMessage());
 		}
 		
 		return status;	
@@ -107,9 +107,8 @@ public class DAO {
 		try {
 			Statement st = conexao.createStatement();
 			String sql = "INSERT INTO usuario (idusuario, nome, emailusuario, senhausuario, prefcurso, prefarea)"
-					+ " VALUES (" + usuario.getIdUsuario() + ", " + "'" + usuario.getNome()+ "'"  + ", " + usuario.getEmailUsuario()
-					+ ", " + usuario.getSenhaUsuario() + ", '" + usuario.getPrefCurso() + "'" + ", " 
-					+ "'"  + usuario.getPrefArea() + "'" +  ");";
+					+ " VALUES (" + usuario.getIdUsuario() + ", '" + usuario.getNome()+ "', '" + usuario.getEmailUsuario()
+					+ "', '" + usuario.getSenhaUsuario() + "', '" + usuario.getPrefCurso() + "', '"  + usuario.getPrefArea() + "');";
 			st.executeUpdate(sql);
 			st.close();
 			status = true;
@@ -119,6 +118,21 @@ public class DAO {
 		
 		return status;
 	}
+	
+	
+	 public boolean loginUsuario(String senha, String email) {	
+		boolean success = false;
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);;
+			ResultSet rs = st.executeQuery("SELECT nome FROM usuario WHERE senhausuario  = '" + senha + "' AND emailusuario = '" + email + "'");
+			if (rs.next()) success = true;
+			st.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return success;
+	 }
+	
 	
 	public boolean atualizarUsuario(Usuario usuario) {
 		boolean status = false;
@@ -141,8 +155,8 @@ public class DAO {
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);;
 			ResultSet rs = st.executeQuery("select max(idusuario) as max_id from usuario");
-			rs.next();
-			id = rs.getInt("max_id");
+			if (rs.next())
+				id = rs.getInt("max_id");
 			st.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -208,7 +222,7 @@ public class DAO {
 	
 	/*------------------------    Fim da Parte de Comentarios        ----------------------*/
 	
-	/*------------------------ Inicio de Funções de Utilidade ------------------------*/
+	/*------------------------ Inicio de Funï¿½ï¿½es de Utilidade ------------------------*/
 	// ira retornar os ultimos ids de usuarios
 	public String[] retornarOsids() {
 		String[] idsGet = new String[4];
