@@ -32,7 +32,7 @@ import static spark.Spark.*;
 public class Principal {
     public static void main(String[] args) {
     	port(7007);
-    	staticFiles.location("/"); // pegar todos os documentos da pasta reources
+    	staticFiles.location("/"); // pegar todos os documentos da pasta resources
 		RetornaroFront mandarSite = new RetornaroFront();// chamar class que ira mandar nossa pagina html para a tela
     	
     	UsuarioService service = new UsuarioService();

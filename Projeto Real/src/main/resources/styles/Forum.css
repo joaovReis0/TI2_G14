@@ -72,6 +72,9 @@
 /****************************************************************************/
 
 /* Main */
+#btnComentar{
+    margin-top: 50px;
+}
 
 .row a:hover{
     margin: 0;
@@ -89,6 +92,7 @@
 .timestamp  {
     font-size: 80%;
     color: skyblue; 
+    margin-bottom: 20px;
 }
 
 .textarea {
@@ -138,6 +142,7 @@ button {
     border-color: #696969;
     display: inline !important;
 }
+
 /* Fim Main */
 
 /****************************************************************************/

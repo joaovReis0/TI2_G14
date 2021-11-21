@@ -25,4 +25,29 @@
        font-family: 'Times New Roman', Times, serif;
        font-size: 15px;
    }
+   .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px !important;
+    max-width: 100%;
+    background-color: rgba(67, 209, 207, 0.35);
+    }
+    .btn-primary{
+        background-color: #696969 !important;
+        border-color: #696969 !important;
+        margin-left: -830px;
+        padding: 20px;
+    }
+    
+    .header a{
+        color: #696969;
+    }
+        
+    .logo{
+        margin-top: 10px;
+        max-width: 150px;
+        max-height: 56px;
+        margin-left: -900px;
+    }
    /**/
