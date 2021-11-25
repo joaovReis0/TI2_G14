@@ -32,11 +32,11 @@ public class Comentario {
 		this.topicoID = topicoID;
 	}
 	
-	public int getIdTopico() {
+	public int getIdComentario() {
 		return idComentario;
 	}
 	
-	public void setIdTopico(int idComentario) {
+	public void setIdComentario(int idComentario) {
 		this.idComentario = idComentario;
 	}
 	
@@ -88,7 +88,7 @@ public class Comentario {
 	
 	public String jsonCreationComentario(Comentario comentario) {// Chamar no click -> Fazer verificação pre envio -> no Js
 		JSONObject jasonUsuario = new JSONObject(); // iniciação do obj json com passagem de string
-		jasonUsuario.put("idComentario",comentario.getIdTopico());
+		jasonUsuario.put("idComentario",comentario.getIdComentario());
 		jasonUsuario.put("conteudo",comentario.getConteudo());
 		jasonUsuario.put("votosComentario",comentario.getVotosComentario());
 		jasonUsuario.put("dataComentario",comentario.getDataComentario());

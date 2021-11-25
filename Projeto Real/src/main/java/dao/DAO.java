@@ -6,6 +6,9 @@ import java.util.*;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import model.Usuario;
+import model.Topico;
+import model.Comentario;
+
 
 public class DAO {
 	private Connection conexao;
@@ -202,6 +205,23 @@ public class DAO {
 		return id;
 	}
 	
+	public boolean inserirTopico(Topico topico) {
+		boolean status = false;
+		try {
+			Statement st = conexao.createStatement(); //  int idTopico, int nComentarios, String titulo, int votosTopico, String dataTopico, String assunto, int usuarioID
+			String sql = "INSERT INTO topico (idTopico, nComentarios, titulo, votosTopico, dataTopico, assunto, usuarioID)"
+					+ " VALUES (" + topico.getIdTopico() + ", '" + topico.getNComentarios()+ "', '" + topico.getTitulo()
+					+ "', '" + topico.getVotosTopico() + "', '" + topico.getDataTopico() + "', '"  + topico.getAssunto() +"', '" + topico.getUsuarioID() +"');";
+			st.executeUpdate(sql);
+			st.close();
+			status = true;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return status;
+	}
+	
 	/*------------------------    Fim da Parte de Topicos        ----------------------*/
 	
 	/*------------------------    Inicio da Parte de Comentarios       ----------------------*/
@@ -218,6 +238,23 @@ public class DAO {
 			throw new RuntimeException(e);
 		}
 		return id;
+	}
+	
+	public boolean inserirComentario(Comentario comentario) {
+		boolean status = false;
+		try {
+			Statement st = conexao.createStatement(); //  int idComentario, String conteudo, int votosComentario, String dataComentario, int usuarioID, int topicoID
+			String sql = "INSERT INTO comentario (idComentario, conteudo, votosComentario, dataComentario, usuarioID, topicoID)"
+					+ " VALUES (" + comentario.getIdComentario() + ", '" + comentario.getConteudo()+ "', '" + comentario.getVotosComentario()
+					+ "', '" + comentario.getDataComentario() + "', '" + comentario.getUsuarioID() + "', '"  + comentario.getTopicoID() + "');";
+			st.executeUpdate(sql);
+			st.close();
+			status = true;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return status;
 	}
 	
 	/*------------------------    Fim da Parte de Comentarios        ----------------------*/

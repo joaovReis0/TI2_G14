@@ -35,14 +35,37 @@
     <div class="container-fluid main">
         <div class="row">
             <div class="col-12">
-                <div class="Topic"></div>
-                <div class="form-floating">
-                    <textarea class="form-control textarea" placeholder="Deixe seu comentário aqui." id="floatingTextarea"></textarea>
-                <button type="button" class="btn btn-success comentar">Comentar</button>
+                <div class="Topic">
                 </div>
             </div>
             <div class="col-12">
+                <button id="btnComentar" type="button" class="btn btn-success comentar" data-toggle="modal" data-target="#myModal">Comentar</button>
+            </div>
+            <div class="col-12">
                 <div class="comments"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Novo Comentario</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="user"> Conteúdo: </label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu comentário..." required="" />
+                    </div>
+                    <button class="btn btn-outline-success botao_pesquisa" type="button">Criar</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abortar</button>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +78,11 @@
             <h1 class="title">
                 ${thread.title}
             </h1>
-            <div class="bottom">
+            <div>
+                <p>
+                    ${thread.content}
+                
+                </p>
                 <p class="timestamp">
                     ${new Date(thread.date).toLocaleString()}
                 </p>
