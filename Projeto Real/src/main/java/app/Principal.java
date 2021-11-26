@@ -62,16 +62,17 @@ public class Principal {
      	
      	post("/login", (req, res) -> service.login(req, res));
      	
-     	
      	TopicoService serviceTopico = new TopicoService();
      	post("/forum", (req, res) -> serviceTopico.add(req, res));
+
+     	get("/forum-all", (req, res) -> serviceTopico.getAll(req, res));
      	
      	ComentarioService serviceComentario = new ComentarioService();
      	post("/thread", (req, res) -> serviceComentario.add(req, res));
 
+		get("/thread-all", (req, res) -> serviceComentario.getAll(req, res));
 
-     	
-		// mandar Usuario para o front e para o bd(NÃO FUNCIONA, INUTIL)
+		// mandar Usuario para o front e para o bd(Nï¿½O FUNCIONA, INUTIL)
      	get("/mandarRe", (req, res) -> {
 			String nomeUU = "";
 			boolean verdade = true;

@@ -222,6 +222,35 @@ public class DAO {
 		return status;
 	}
 	
+	public Topico[] getTopicos() {
+		Topico[] topicos = null;
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);;
+			ResultSet rs = st.executeQuery("SELECT * FROM topico");
+			if (rs.next()) {
+				rs.last(); 
+				topicos = new Topico[rs.getRow()];
+				rs.beforeFirst();
+				for (int i = 0; rs.next(); i++) {
+					topicos[i] = new Topico(
+						rs.getInt("idTopico"),
+						rs.getInt("nComentarios"),
+						rs.getString("titulo"),
+						rs.getInt("votosTopico"),
+						rs.getString("dataTopico"),
+						rs.getString("assunto"),
+						rs.getInt("usuarioID")
+					);			
+				}
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		}
+		return topicos;
+	}
+	
 	/*------------------------    Fim da Parte de Topicos        ----------------------*/
 	
 	/*------------------------    Inicio da Parte de Comentarios       ----------------------*/
@@ -255,6 +284,34 @@ public class DAO {
 		}
 		
 		return status;
+	}
+	
+	public Comentario[] getComentarios() {
+		Comentario[] comentarios = null;
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);;
+			ResultSet rs = st.executeQuery("SELECT * FROM comentario");
+			if (rs.next()) {
+				rs.last(); 
+				comentarios = new Comentario[rs.getRow()];
+				rs.beforeFirst();
+				for (int i = 0; rs.next(); i++) {//int idComentario, String conteudo, int votosComentario, String dataComentario, int usuarioID, int topicoID
+					comentarios[i] = new Comentario(
+						rs.getInt("idComentario"),
+						rs.getString("conteudo"),
+						rs.getInt("votosComentario"),
+						rs.getString("dataComentario"),
+						rs.getInt("topicoID"),
+						rs.getInt("usuarioID")
+					);			
+				}
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		}
+		return comentarios;
 	}
 	
 	/*------------------------    Fim da Parte de Comentarios        ----------------------*/

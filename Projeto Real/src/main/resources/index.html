@@ -52,6 +52,10 @@
                                 class="btn btn-primary">Login</button></a>
                     </div>
                 </li>
+                <li>
+                    <div class="button1" id="logout">
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -336,7 +340,7 @@
                     </div>
                     <div class="row botãoVoc">
                         <div class="row buttonVoc">
-                            <a class="button" href="Forum.html"><button type="button"
+                            <a class="button" href="Forum.html" onclick="return notLogged();"><button type="button"
                                     class="btn btn-primary">Fórum</button></a>
                         </div>
                     </div>
@@ -356,21 +360,32 @@
         	const loggedUser = localStorage.getItem('email');
         	if (loggedUser) {
         		const cadastro = document.getElementById('cadastro');
+        		
         		cadastro.innerHTML = loggedUser;
         		
+        		const logout = document.getElementById('logout');
+        	       		
         		
         		const login = document.getElementById('login');
         		login.remove();
         		let btn = document.createElement("button");
-				btn.innerHTML = "logout";
+				btn.innerHTML = "Logout";
 				btn.onclick = function () {
   					localStorage.removeItem('email');
   					localStorage.removeItem('id');
   					window.location.reload();
 				};
-				document.body.appendChild(btn);
+				$(btn).addClass('btn-primary').addClass('btn');
+				
+				logout.appendChild(btn);
         		
-        		
+        	}
+        }
+        function notLogged() {
+        	const loggedUser = localStorage.getItem('email');
+        	if(!loggedUser){
+        		alert("Usuario nao logado! Realize o Login antes de utilizar o Forum.");
+        		return false;
         	}
         }
 	</script>

@@ -18,6 +18,27 @@ public class TopicoService {
 		Dao = new DAO();
 		Dao.conectar();
 	}
+
+	public Object getAll(Request request, Response response) {
+		StringBuffer topicos = new StringBuffer("<topicos type=\"array\">");
+		for (Topico topico : Dao.getTopicos()) {
+			topicos.append(
+					"<topico>\n" +
+					"\t<idTopico>" + topico.getIdTopico() + "\t</idTopico>\n" +
+					"\t<assunto>" + topico.getAssunto() + "\t</assunto>\n" +
+					"\t<dataTopico>" + topico.getDataTopico() + "\t</dataTopico>\n" +
+					"\t<nComentario>" + topico.getNComentarios() + "\t</nComentario>\n" +
+					"\t<titulo>" + topico.getTitulo() + "\t</titulo>\n" +
+					"\t<usuarioID>" + topico.getUsuarioID() + "\t</usuarioID>\n" +
+					"\t<votosTopico>" + topico.getVotosTopico() + "\t</votosTopico>\n" +
+					"</topico>"
+			);
+		}
+		topicos.append("</topicos>");
+		response.header("Content-Type", "application/xml");
+		response.header("Content-Encoding", "UTF-8");
+		return topicos.toString();
+	}
 	
 	public Object add(Request request, Response response) throws ParseException {
 		String titulo = request.queryParams("titulo");
@@ -42,5 +63,8 @@ public class TopicoService {
 		this.usuarioID = usuarioID;
 		*/
 	}
+	
+	
+	
 	
 }
