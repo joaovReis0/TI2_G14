@@ -23,9 +23,9 @@ public class ComentarioService {
 	
 	public Object add(Request request, Response response) throws ParseException {
 		String conteudo = request.queryParams("conteudo");
-		//int usuarioID = ;
-		//int topicoID = ;
-		int id = Dao.getMaxIdComentario() + 1;
+		int usuarioID = Integer.parseInt(request.queryParams("id"));
+		int topicoID = Integer.parseInt(request.queryParams("topicoID"));
+		int id = Dao.getMaxIdComentario() + 1;	
 		int votosComentario = 0;
 		String dataComentario =  new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 		

@@ -92,15 +92,15 @@
 			console.log(email);
 			console.log(senha);
 			$.ajax({
-			   url: 'http://0.0.0.0:7007/login',
+			   url: 'http://localhost:7007/login',
 		       type: "POST",
 		       data: {
 		          email,
-		          senha
+		          senha,
 		       }
 		    }).done(function (data) {
 		    	localStorage.setItem('email', email);		    		
-		        window.location.href = "http://0.0.0.0:7007/";
+		        window.location.href = "http://localhost:7007/";
 		
 		    }).fail(function (error) {
 		    debugger;

@@ -98,7 +98,7 @@ function myFunction() {
 	const senha = document.getElementById("senha").value;
 
 	$.ajax({
-	   url: 'http://0.0.0.0:7007/cadastro',
+	   url: 'http://localhost:7007/cadastro',
        type: "POST",
        data: {
           nome,  
@@ -107,8 +107,9 @@ function myFunction() {
        }
     }).done(function (data) {
     		localStorage.setItem('email', email);
+    		localStorage.setItem('id', data);
     		
-            window.location.href = "http://0.0.0.0:7007/";
+            window.location.href = "http://localhost:7007/";
 
     })
 }

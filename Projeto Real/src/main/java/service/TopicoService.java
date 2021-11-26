@@ -22,13 +22,13 @@ public class TopicoService {
 	public Object add(Request request, Response response) throws ParseException {
 		String titulo = request.queryParams("titulo");
 		String assunto = request.queryParams("assunto");
+		int usuarioID = Integer.parseInt(request.queryParams("id"));
 		int votosTopico = 0;
 		int nComentarios = 0;
-		//int topicoID = ;
 		int id = Dao.getMaxIdTopico() + 1;
 		String dataTopico =  new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 		
- 		Topico topico = new Comentario(id, nComentarios, titulo, votosTopico, dataTopico, assunto, usuarioID);
+ 		Topico topico = new Topico(id, nComentarios, titulo, votosTopico, dataTopico, assunto, usuarioID);
  		Dao.inserirTopico(topico);
  	
 		return id;

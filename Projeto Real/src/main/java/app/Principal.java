@@ -1,5 +1,7 @@
 package app;
 
+import service.ComentarioService;
+import service.TopicoService;
 import service.UsuarioService;
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -59,9 +61,17 @@ public class Principal {
      	post("/cadastro", (req, res) -> service.add(req, res));
      	
      	post("/login", (req, res) -> service.login(req, res));
+     	
+     	
+     	TopicoService serviceTopico = new TopicoService();
+     	post("/forum", (req, res) -> serviceTopico.add(req, res));
+     	
+     	ComentarioService serviceComentario = new ComentarioService();
+     	post("/thread", (req, res) -> serviceComentario.add(req, res));
+
 
      	
-		// mandar Usuario para o front e para o bd
+		// mandar Usuario para o front e para o bd(NÃO FUNCIONA, INUTIL)
      	get("/mandarRe", (req, res) -> {
 			String nomeUU = "";
 			boolean verdade = true;

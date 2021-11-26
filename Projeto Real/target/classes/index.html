@@ -358,8 +358,18 @@
         		const cadastro = document.getElementById('cadastro');
         		cadastro.innerHTML = loggedUser;
         		
+        		
         		const login = document.getElementById('login');
         		login.remove();
+        		let btn = document.createElement("button");
+				btn.innerHTML = "logout";
+				btn.onclick = function () {
+  					localStorage.removeItem('email');
+  					localStorage.removeItem('id');
+  					window.location.reload();
+				};
+				document.body.appendChild(btn);
+        		
         		
         	}
         }

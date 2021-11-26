@@ -59,9 +59,9 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="user"> Conteúdo: </label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu comentário..." required="" />
+                        <input type="text" class="form-control" id="conteudo" name="conteudo" placeholder="Digite seu comentário..." required="" />
                     </div>
-                    <button class="btn btn-outline-success botao_pesquisa" type="button">Criar</button>
+                    <button class="btn btn-outline-success botao_pesquisa" type="button" onclick="myFunction()">Criar</button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Abortar</button>
@@ -152,14 +152,31 @@
 
     <!-- Fim Footer -->
 
+    <script>
+	function myFunction() {
+		const conteudo = document.getElementById("conteudo").value;
+		const id = localStorage.getItem("id");
+		const topicoID = location.search.substring(1);
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+	$.ajax({
+	   url: 'http://localhost:7007/thread',
+       type: "POST",
+       data: {
+          conteudo,  
+          id,
+          topicoID,
+       }
+    }).done(function (data) {
+    
+    		window.location.href = "http://localhost:7007/Thread.html?"+topicoID;
+    })
+}
+</script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
 </body>
 
 </html>
