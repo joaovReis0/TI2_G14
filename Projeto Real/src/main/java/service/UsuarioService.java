@@ -41,15 +41,15 @@ public class UsuarioService {
 	public Object login(Request request, Response response) {
 		String email = request.queryParams("email");
 		String senha = request.queryParams("senha");
-	    boolean _login = Dao.loginUsuario(senha, email);
+	    int id = Dao.loginUsuario(senha, email);
 		
-		if (_login) {
+		if (id >= 0) {
 			response.status(200);
 		} else {
 			response.status(404);
 		}
 
-		return "ok";
+		return id;
 	}
 	
 	public Object get(Request request, Response response) {

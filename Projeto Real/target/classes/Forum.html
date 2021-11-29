@@ -48,9 +48,7 @@
                             <input class="form-control me-2" type="search" placeholder="Pesquisar usuário" aria-label="Pesquisar">
                             <button class="btn btn-outline-success botao_pesquisa" type="button">Pesquisar</button>
                             <button class="btn btn-outline-success botao_pesquisa" type="button" data-toggle="modal" data-target="#myModal">Criar Topico</button>
-                            <form role="form" action="http://localhost:7007/forum-all" method="get">
-	    						<button type="submit" class="btn btn-primary">Teste</button>
-	 						</form>
+	    				
                         </form>
                     </div>
                 </nav>
@@ -123,6 +121,35 @@
 
     <!-- Fim Footer -->
     <script>
+    
+	window.onload = () => {
+	     $.ajax({
+	        url: 'http://localhost:7007/forum-all',
+	        type: "GET",
+	        dataType: "json"
+	    }).done(function(data) {
+	    	console.log(data);
+	        var container = document.querySelector('ol');
+        	for (let thread of data) {
+            var html = `
+                        <li class = "row li_area">
+                            <a href="/Thread.html?${thread.idTopico}">
+                                <h1 class="title">
+                                    ${thread.titulo}
+                                </h1>
+                                <div class="bottom">
+                                    <p class="timestamp">
+                                        ${thread.dataTopico}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+            `
+            container.insertAdjacentHTML('beforeend', html);
+            }
+	    })
+	}
+	
 	function myFunction() {
 		const titulo = document.getElementById("titulo").value;
 		const assunto = document.getElementById("assunto").value;
@@ -142,6 +169,7 @@
 
     })
 }
+
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

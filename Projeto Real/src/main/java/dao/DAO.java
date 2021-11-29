@@ -123,17 +123,17 @@ public class DAO {
 	}
 	
 	
-	 public boolean loginUsuario(String senha, String email) {	
-		boolean success = false;
+	 public int loginUsuario(String senha, String email) {	
+		int id = -1;
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);;
-			ResultSet rs = st.executeQuery("SELECT nome FROM usuario WHERE senhausuario  = '" + senha + "' AND emailusuario = '" + email + "'");
-			if (rs.next()) success = true;
+			ResultSet rs = st.executeQuery("SELECT idusuario FROM usuario WHERE senhausuario  = '" + senha + "' AND emailusuario = '" + email + "'");
+			if (rs.next()) id = rs.getInt("idusuario");
 			st.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		return success;
+		return id;
 	 }
 	
 	

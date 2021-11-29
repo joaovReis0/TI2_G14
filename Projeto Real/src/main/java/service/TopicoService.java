@@ -7,6 +7,8 @@ import model.Topico;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import spark.Request;
 import spark.Response;
@@ -20,6 +22,7 @@ public class TopicoService {
 	}
 
 	public Object getAll(Request request, Response response) {
+		/*
 		StringBuffer topicos = new StringBuffer("<topicos type=\"array\">");
 		for (Topico topico : Dao.getTopicos()) {
 			topicos.append(
@@ -33,11 +36,16 @@ public class TopicoService {
 					"\t<votosTopico>" + topico.getVotosTopico() + "\t</votosTopico>\n" +
 					"</topico>"
 			);
-		}
-		topicos.append("</topicos>");
-		response.header("Content-Type", "application/xml");
+		}*/
+		GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        System.out.println(gson.toJson(Dao.getTopicos()));
+       
+		//topicos.append("</topicos>");
+        
+		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
-		return topicos.toString();
+		return gson.toJson(Dao.getTopicos());
 	}
 	
 	public Object add(Request request, Response response) throws ParseException {

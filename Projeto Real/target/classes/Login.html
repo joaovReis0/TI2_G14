@@ -99,11 +99,11 @@
 		          senha,
 		       }
 		    }).done(function (data) {
-		    	localStorage.setItem('email', email);		    		
+		    	localStorage.setItem('email', email);
+		    	localStorage.setItem('id', data);		    		
 		        window.location.href = "http://localhost:7007/index.html";
 		
 		    }).fail(function (error) {
-		    debugger;
 		    	alert("Crendenciais inválidas");
 		    })
 		}
