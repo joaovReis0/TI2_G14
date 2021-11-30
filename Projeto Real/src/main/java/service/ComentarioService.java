@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import spark.Request;
 import spark.Response;
 
@@ -47,6 +50,7 @@ public class ComentarioService {
 	}
 	
 	public Object getAll(Request request, Response response) {
+		/*
 		StringBuffer comentarios = new StringBuffer("<comentarios type=\"array\">");
 		for (Comentario comentario : Dao.getComentarios()) {
 			comentarios.append(
@@ -60,10 +64,16 @@ public class ComentarioService {
 					"</comentario>"
 			);
 		}
-		comentarios.append("</comentarios>");
-		response.header("Content-Type", "application/xml");
+		*/
+		GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        System.out.println(gson.toJson(Dao.getComentarios()));
+        
+		//comentarios.append("</comentarios>");
+        
+        response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
-		return comentarios.toString();
+		return gson.toJson(Dao.getComentarios());
 	}
 
 }

@@ -24,15 +24,16 @@
                 <img src="assets/novaLogo.png" class="logo">
             </div>
             <div class="col-6 menu_area">
-                <nav class="menu">
-                    <p>
+                <nav class="menu">                                
                     <div class="button1">
                         <a class="button" href="/"><button type="button" class="btn btn-primary"><i
                                     class="fas fa-solid fas fa-arrow-left"></i> Voltar</button></a>
                     </div>
-                    </p>
                 </nav>
+                
             </div>
+            <div id="cadastro">
+                 </div>
         </div>
     </header>
 
@@ -123,6 +124,14 @@
     <script>
     
 	window.onload = () => {
+			const loggedUser = localStorage.getItem('email');
+        	if (loggedUser) {
+        		const cadastro = document.getElementById('cadastro');        		
+        		const idLogado = localStorage.getItem('id');
+        		cadastro.innerHTML = "Seu ID: " + idLogado;
+        	}
+		
+		
 	     $.ajax({
 	        url: 'http://localhost:7007/forum-all',
 	        type: "GET",
@@ -131,6 +140,7 @@
 	    	console.log(data);
 	        var container = document.querySelector('ol');
         	for (let thread of data) {
+        	const topicoIdCerto = location.search.substring(1);
             var html = `
                         <li class = "row li_area">
                             <a href="/Thread.html?${thread.idTopico}">

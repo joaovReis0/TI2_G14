@@ -23,10 +23,12 @@
         <nav class="menu">
             <p>
             <div class="button1">
-                <a class="button" href="/"><button type="button" class="btn btn-primary"><i
+                <a class="button" href="/Forum.html"><button type="button" class="btn btn-primary"><i
                             class="fas fa-solid fas fa-arrow-left"></i> Voltar</button></a>
             </div>
             </p>
+            <div id="cadastro">
+                 </div>
 
         </nav>
     </header>
@@ -42,7 +44,9 @@
                 <button id="btnComentar" type="button" class="btn btn-success comentar" data-toggle="modal" data-target="#myModal">Comentar</button>
             </div>
             <div class="col-12">
-                <div class="comments"></div>
+                <div class="comments">
+                <p><b>Comentários:</b></p>
+                </div>
             </div>
         </div>
     </div>
@@ -153,6 +157,97 @@
     <!-- Fim Footer -->
 
     <script>
+    window.onload = () => {
+    	const loggedUser = localStorage.getItem('email');
+        	if (loggedUser) {
+        		const cadastro = document.getElementById('cadastro');        		
+        		const idLogado = localStorage.getItem('id');
+        		cadastro.innerHTML = "Seu ID: " + idLogado;
+        	}
+
+
+            $.ajax({
+	        url: 'http://localhost:7007/forum-all',
+	        type: "GET",
+	        dataType: "json"
+	        }).done(function(data) {
+	    	console.log(data);
+        	for (let thread of data) {
+            var header = document.querySelector('.Topic');
+            const idCerto = location.search.substring(1);
+            if(idCerto == thread.idTopico){
+                var headerHtml = `
+                    <h1 class="title">
+                        ${thread.titulo}
+                    </h1>
+                    <div>
+                        <p>
+                            ${thread.assunto}
+                        
+                        </p>
+                        <p class="timestamp">
+                            ${thread.dataTopico}
+                        </p>
+                    </div>
+                `
+                header.insertAdjacentHTML('beforeend', headerHtml);
+                }
+            }
+	    })
+	    
+		
+    	
+    
+	    $.ajax({
+	        url: 'http://localhost:7007/thread-all',
+	        type: "GET",
+	        dataType: "json"
+	    }).done(function(data) {
+	    	console.log(data);
+	        var comments = document.querySelector('.comments');
+        	for (let comment of data) {
+        		const topicoIdCerto = location.search.substring(1);
+        		console.log(topicoIdCerto);
+        		console.log(comment.usuarioID);
+        		if(topicoIdCerto == comment.usuarioID){
+		            var commentHtml = `
+		                <div class="comment">
+		                    <div class="top-comment">
+		                        <p class="user">
+		                            ${comment.topicoID}
+		                        </p>
+		                        <p class="comment-ts">
+		                            ${comment.dataComentario}
+		                        </p>
+		                    </div>
+		                    <div class="comment-content">
+		                        ${comment.conteudo}
+		                    </div>
+		                    <div class="ratings">
+		                        <div class="row">
+		                            <div class="col-12">
+		                                <div class="voting">
+		                                    <button id="likebtn" type="button" class="btn btn-success likebutton">
+                                        		<i class="fas fa-thumbs-up"></i>
+                                    		</button>
+                                    		<button id="dislikebtn" type="button" class="btn btn-success dislikebutton">
+                                        		<i class="fas fa-thumbs-down"></i>
+                                    		</button>
+		                                </div>
+		                            </div>
+		                        </div>  
+		                    </div> 
+		                    <div class="separation">¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯</div>
+		                </div>
+		            `
+            	}
+            comments.insertAdjacentHTML('beforeend', commentHtml);
+           }
+	    })
+    }
+	
+    
+    
 	function myFunction() {
 		const conteudo = document.getElementById("conteudo").value;
 		const id = localStorage.getItem("id");
