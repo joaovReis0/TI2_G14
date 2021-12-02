@@ -70,11 +70,11 @@
 
         <section class="row section1">
             <div class="col-12 linkBot">
-                <div class="card">
-                    <a href="chatbot.html">
+                <div class="card" onclick="window.open('https://felipe-r847n.chat.blip.ai/?appKey=c29jcmF0ZXMxOmM2NTk1ZmFhLTIwNjktNDhhNS05NmZjLTI4ZmY4MjY4MDVmNQ==','mywindow');">
+                    <a>
                         <h4>Converse com Socrates</h4>
-                        <p>Clique aqui para interagir com Socrates, nossa inteligencia artificial. Atraves dele,
-                            é possível solicitar a execução de diversos comandos.
+                        <p>Clique aqui para interagir com Socrates ou use o botão em baixo a direita, Sócrates é
+                        nossa inteligencia artificial, criada para facilitar a vida do nosso usuário e resolver seus problemas de acesso.
                         </p>
                         
                     </a>
@@ -354,10 +354,20 @@
 
 
     </main>
+    <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+    </script>
     
     <script>
         window.onload = function() {
-        	const loggedUser = localStorage.getItem('email');
+            const loggedUser = localStorage.getItem('email');
+
+                //coisas do chatbot
+                new BlipChat()
+                .withAppKey('c29jcmF0ZXMxOmM2NTk1ZmFhLTIwNjktNDhhNS05NmZjLTI4ZmY4MjY4MDVmNQ==')
+                .withButton({"color":"#2CC3D5","icon":""})
+                .withCustomCommonUrl('https://felipe-r847n.chat.blip.ai/')
+                .build();
+
         	if (loggedUser) {
         		const cadastro = document.getElementById('cadastro');
         		
@@ -402,6 +412,7 @@
     </footer>
 
     <!-- Fim Footer -->
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
